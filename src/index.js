@@ -1,7 +1,7 @@
 import { EventEmitter } from 'event-emitter';
 
 export default function detectSwipe(element, eventName) {
-  let swipeCoordinates;
+  let swipeCoordinates = {};
 
   const getDirection = function getSwipeDirection({ enter, out }) {
     const xDiff = Math.abs(enter.x - out.x);
