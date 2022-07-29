@@ -1,6 +1,4 @@
-import { EventEmitter } from 'event-emitter';
-
-export default function detectSwipe(element, eventName) {
+export default function detectSwipe(element, callback) {
   let swipeCoordinates = {};
 
   const getDirection = function getSwipeDirection({ enter, out }) {
@@ -18,6 +16,7 @@ export default function detectSwipe(element, eventName) {
   };
 
   const pointerEnter = function pointerEnterListener(e) {
+    swipeCoordinates = {};
     Object.assign(swipeCoordinates, { enter: { x: e.x, y: e.y } });
   };
 
@@ -25,8 +24,7 @@ export default function detectSwipe(element, eventName) {
     Object.assign(swipeCoordinates, { out: { x: e.x, y: e.y } });
 
     const direction = getDirection(swipeCoordinates);
-    EventEmitter.raiseEvent(eventName, direction);
-    swipeCoordinates = {};
+    callback(direction);
   };
 
   element.addEventListener('pointerenter', pointerEnter);
