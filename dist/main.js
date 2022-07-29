@@ -1,1 +1,78 @@
-!function(e,t){if("object"==typeof exports&&"object"==typeof module)module.exports=t();else if("function"==typeof define&&define.amd)define([],t);else{var n=t();for(var o in n)("object"==typeof exports?exports:e)[o]=n[o]}}(self,(()=>(()=>{"use strict";var e={d:(t,n)=>{for(var o in n)e.o(n,o)&&!e.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:n[o]})},o:(e,t)=>Object.prototype.hasOwnProperty.call(e,t),r:e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}},t={};e.r(t),e.d(t,{default:()=>o});let n=function(){let e={};return{addEvent:function(t,n){e=e||{},e[t]=e[t]||[],e[t].push(n)},raiseEvent:function(t,...n){e[t]&&e[t].forEach((e=>e(...n)))},removeEvent:function(t,n){let o=e[t].findIndex((e=>e===n));e[t].splice(o,1)}}}();function o(e,t){let o={};e.addEventListener("pointerenter",(function(e){Object.assign(o,{enter:{x:e.x,y:e.y}})})),e.addEventListener("pointerout",(function(e){Object.assign(o,{out:{x:e.x,y:e.y}});const r=function({enter:e,out:t}){let n;return n=Math.abs(e.x-t.x)>Math.abs(e.y-t.y)?e.x>t.x?"left":"right":e.y>t.y?"up":"down",n}(o);n.raiseEvent(t,r),o={}}))}return t})()));
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, () => {
+return /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ detectSwipe)\n/* harmony export */ });\nfunction detectSwipe(element, callback) {\n  let swipeCoordinates = {};\n\n  const getDirection = function getSwipeDirection({ enter, out }) {\n    const xDiff = Math.abs(enter.x - out.x);\n    const yDiff = Math.abs(enter.y - out.y);\n    let swipeDirection;\n\n    if (xDiff > yDiff) {\n      swipeDirection = enter.x > out.x ? 'left' : 'right';\n    } else {\n      swipeDirection = enter.y > out.y ? 'up' : 'down';\n    }\n\n    return swipeDirection;\n  };\n\n  const pointerEnter = function pointerEnterListener(e) {\n    swipeCoordinates = {};\n    Object.assign(swipeCoordinates, { enter: { x: e.x, y: e.y } });\n  };\n\n  const pointerOut = function pointerOutListener(e) {\n    Object.assign(swipeCoordinates, { out: { x: e.x, y: e.y } });\n\n    const direction = getDirection(swipeCoordinates);\n    callback(direction);\n  };\n\n  element.addEventListener('pointerenter', pointerEnter);\n  element.addEventListener('pointerout', pointerOut);\n}\n\n\n//# sourceURL=webpack://swipe-detection/./src/index.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/index.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
