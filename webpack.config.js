@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     library: {
@@ -9,5 +9,8 @@ module.exports = {
     },
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+  },
+  optimization: {
+    minimize: false,
   },
 };
